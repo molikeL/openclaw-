@@ -442,7 +442,7 @@ function Show-Summary {
     Write-Separator
     Write-Host ""
     Write-Host " 按任意键退出..." -ForegroundColor DarkGray
-    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 2>$null
+    try { $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") } catch { Read-Host "按 Enter 键退出" | Out-Null }
 }
 
 # ══════════════════════════════════════════════════════════════

@@ -171,7 +171,7 @@ function Main {
         Write-Host " 请先运行 deploy.bat 完成 OpenClaw 的安装部署。" -ForegroundColor Yellow
         Write-Host ""
         Write-Host " 按任意键退出..." -ForegroundColor DarkGray
-        $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 2>$null
+        try { $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") } catch { Read-Host "按 Enter 键退出" | Out-Null }
         exit 1
     }
 
@@ -190,7 +190,7 @@ function Main {
     Write-Host " OpenClaw 已在后台运行。关闭此窗口不会停止服务。" -ForegroundColor Green
     Write-Host ""
     Write-Host " 按任意键关闭此窗口..." -ForegroundColor DarkGray
-    $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") 2>$null
+    try { $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown") } catch { Read-Host "按 Enter 键关闭此窗口" | Out-Null }
 }
 
 Main
